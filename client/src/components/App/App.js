@@ -5,21 +5,19 @@ import Home from "../Home/Home";
 import Movie from "../Movie/Movie";
 import NotFound from "../elements/NotFound/NotFound";
 
-class App extends React.Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <React.Fragment>
-          <Header />
-          <Switch>
-            <Route path="/" component={Home} exact />
-            <Route path="/:movieId" component={Movie} exact />
-            <Route component={NotFound} />
+function App() {
+  return (
+    <BrowserRouter>
+      <React.Fragment>
+        <Header />
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/:movieId" component={Movie} exact />
+          <Route component={NotFound} />
           </Switch>
-        </React.Fragment>
-      </BrowserRouter>
-    );
-  }
-}
+      </React.Fragment>
+    </BrowserRouter>
+  );
+} 
 
 export default App;

@@ -1,11 +1,18 @@
-import { mount } from 'enzyme';
+import { configure, shallow } from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
+configure({ adapter: new Adapter() });
+
 import App from './App';
-import Home from './components/Home/Home';
+import Header from '../../components/elements/Header/Header';
 
-test('renders the App Component', () => {
-  const app = mount(<App />);
+describe("test the header component has been rendered", () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = shallow(<App/>);
+  });
 
-  it("should show the HomeComponent", () => {
-    expect(wrapper.find(Home).length === 1).toBeTruthy();
+  it("should show the Header Component", () => {
+    expect(wrapper.find(Header).length === 1).toBeTruthy();
   });
 });
