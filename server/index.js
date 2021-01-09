@@ -14,6 +14,18 @@ router.get('/movies', (req, res)=>{
     res.send(func.getMovies(req.body))
 });
 
+router.get('/movies/:movieId', (req, res)=>{
+    const movieId = req.params.movieId;
+    console.log("movieId",movieId);
+    res.send(func.getMovieInformation(movieId))
+});
+
+router.get('/movies/searchTerm/:searchTerm', (req, res)=>{
+    const searchTerm = req.params.searchTerm;
+    console.log("searchTerm",searchTerm);
+    res.send(func.getSearchResults(searchTerm))
+});
+
 app.use("/", router);
 
 var server = app.listen(3000, ()=>{
